@@ -3,6 +3,8 @@ package com.okysoft.githubmvp.domain.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by oyuk on 2016/01/21.
  */

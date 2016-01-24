@@ -5,4 +5,6 @@ package com.okysoft.githubmvp.domain.usecase;
  */
 public interface UserUseCase {
 
+
+
 }

@@ -1,20 +1,17 @@
 package com.okysoft.githubmvp.presentation.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.okysoft.githubmvp.R;
-import com.okysoft.githubmvp.presentation.presenter.MainActivityPresenter;
+import com.okysoft.githubmvp.presentation.presenter.MainActivityView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
-    MainActivityPresenter presenter;
+    MainActivityView presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +20,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        presenter = new MainActivityView();
+        presenter.attachView(this);
+    }
 
+    @Override
+    protected void onDestroy() {
+        presenter.detachView();
+        super.onDestroy();
     }
 
     @Override
